@@ -1,0 +1,249 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1180 610" width="100%" height="100%">
+  <defs>
+    <!-- Background Radial Gradients -->
+    <radialGradient id="bg-glow1" cx="20%" cy="30%" r="60%">
+      <stop offset="0%" stop-color="#7C3AED" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#030712" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="bg-glow2" cx="80%" cy="70%" r="50%">
+      <stop offset="0%" stop-color="#06B6D4" stop-opacity="0.2" />
+      <stop offset="100%" stop-color="#030712" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Accent Gradients -->
+    <linearGradient id="accent-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#7C3AED" />
+      <stop offset="50%" stop-color="#22D3EE" />
+      <stop offset="100%" stop-color="#10B981" />
+    </linearGradient>
+
+    <!-- Moving ASCII Gradient -->
+    <linearGradient id="ascii-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#22D3EE">
+        <animate attributeName="stop-color" values="#22D3EE;#7C3AED;#10B981;#22D3EE" dur="8s" repeatCount="indefinite" />
+      </stop>
+      <stop offset="100%" stop-color="#7C3AED">
+        <animate attributeName="stop-color" values="#7C3AED;#10B981;#22D3EE;#7C3AED" dur="8s" repeatCount="indefinite" />
+      </stop>
+    </linearGradient>
+
+    <!-- Scanline Gradient -->
+    <linearGradient id="scanline" x1="0" y1="0" x2="0" y2="100%">
+      <stop offset="0%" stop-color="#22D3EE" stop-opacity="0" />
+      <stop offset="50%" stop-color="#22D3EE" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#22D3EE" stop-opacity="0" />
+    </linearGradient>
+
+    <!-- Border Shimmer Gradient -->
+    <linearGradient id="border-shimmer" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="rgba(255,255,255,0.2)" />
+      <stop offset="50%" stop-color="rgba(34,211,238,0.5)" />
+      <stop offset="100%" stop-color="rgba(124,58,237,0.2)" />
+    </linearGradient>
+
+    <!-- Filters -->
+    <filter id="glow-cyan" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+    
+    <filter id="pill-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <!-- Typing Clips -->
+    <clipPath id="type-clip">
+      <rect x="0" y="0" width="0" height="40">
+        <animate attributeName="width" values="0; 320; 320; 0; 0" keyTimes="0; 0.4; 0.8; 0.95; 1" dur="10s" repeatCount="indefinite" />
+      </rect>
+    </clipPath>
+  </defs>
+
+  <style>
+    .bg { fill: #030712; }
+    .panel { fill: #0F172A; fill-opacity: 0.65; stroke: url(#border-shimmer); stroke-width: 1; }
+    .text-primary { fill: #F8FAFC; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
+    .text-muted { fill: #94A3B8; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
+    .mono { font-family: 'Fira Code', 'Cascadia Code', Consolas, Monaco, monospace; }
+    .ascii-text { fill: url(#ascii-grad); font-size: 11px; letter-spacing: 2px; }
+    
+    /* Pill styling */
+    .pill { fill: #1E293B; stroke: rgba(255,255,255,0.1); stroke-width: 1; rx: 12; transition: all 0.3s; }
+    .pill-text { fill: #E2E8F0; font-size: 12px; font-weight: 500; }
+
+    /* Keyframe Animations */
+    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+    .cursor { animation: blink 0.8s infinite; fill: #22D3EE; }
+    
+    @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-8px); } }
+    .floating-ascii { animation: float 6s ease-in-out infinite; }
+  </style>
+
+  <!-- Canvas Background -->
+  <rect width="1180" height="610" rx="24" class="bg" />
+  <rect width="1180" height="610" rx="24" fill="url(#bg-glow1)" />
+  <rect width="1180" height="610" rx="24" fill="url(#bg-glow2)" />
+
+  <!-- Background Particles -->
+  <g opacity="0.3">
+    <circle cx="100" cy="80" r="1.5" fill="#22D3EE"><animate attributeName="opacity" values="0.2;1;0.2" dur="3s" repeatCount="indefinite" /></circle>
+    <circle cx="520" cy="120" r="1" fill="#7C3AED"><animate attributeName="opacity" values="1;0.2;1" dur="4s" repeatCount="indefinite" /></circle>
+    <circle cx="1100" cy="200" r="1.5" fill="#10B981"><animate attributeName="opacity" values="0.3;0.9;0.3" dur="2.5s" repeatCount="indefinite" /></circle>
+    <circle cx="400" cy="500" r="1" fill="#22D3EE"><animate attributeName="opacity" values="0.1;0.8;0.1" dur="3.5s" repeatCount="indefinite" /></circle>
+  </g>
+
+  <!-- ================= LEFT PANEL: ASCII ART (38%) ================= -->
+  <g id="left-panel">
+    <rect x="30" y="30" width="410" height="550" rx="16" class="panel" />
+    
+    <!-- Cyber Terminal Header -->
+    <rect x="30" y="30" width="410" height="36" rx="16" fill="rgba(255,255,255,0.03)" />
+    <circle cx="52" cy="48" r="5" fill="#EF4444" />
+    <circle cx="68" cy="48" r="5" fill="#F59E0B" />
+    <circle cx="84" cy="48" r="5" fill="#10B981" />
+    <text x="235" y="52" text-anchor="middle" class="text-muted mono" font-size="11" opacity="0.7">avatar.ascii</text>
+
+    <!-- Animated Floating ASCII Group -->
+    <g class="floating-ascii">
+      <!-- ASCII Portrait Lines -->
+      <g class="mono ascii-text" filter="url(#glow-cyan)">
+        <text x="60" y="120">        .---.        </text>
+        <text x="60" y="138">       /     \       </text>
+        <text x="60" y="156">      | () () |      </text>
+        <text x="60" y="174">       \  ^  /       </text>
+        <text x="60" y="192">        |||||        </text>
+        <text x="60" y="210">      .-------.      </text>
+        <text x="60" y="228">     /    |    \     </text>
+        <text x="60" y="246">    /  /  |  \  \    </text>
+        <text x="60" y="264">   |  |   |   |  |   </text>
+        <text x="60" y="282">   |  |   |   |  |   </text>
+        <text x="60" y="300">   *--'   *   '--*   </text>
+        <text x="60" y="318">     /   / \   \     </text>
+        <text x="60" y="336">    /   /   \   \    </text>
+        <text x="60" y="354">   /___/     \___\   </text>
+        <text x="60" y="372">  (____)     (____)  </text>
+      </g>
+    </g>
+
+    <!-- Terminal Status Line -->
+    <g transform="translate(50, 510)">
+      <text x="0" y="0" class="mono text-muted" font-size="11">[SYS_STATUS]</text>
+      <text x="100" y="0" class="mono" font-size="11" fill="#10B981">● ONLINE</text>
+      <text x="0" y="20" class="mono text-muted" font-size="10">LOC: 127.0.0.1:8080</text>
+    </g>
+
+    <!-- Moving Scanline Effect -->
+    <rect x="31" y="66" width="408" height="20" fill="url(#scanline)" opacity="0.7">
+      <animateTransform attributeName="transform" type="translate" values="0,0; 0,480; 0,0" dur="7s" repeatCount="indefinite" />
+    </rect>
+  </g>
+
+  <!-- ================= RIGHT PANEL: TERMINAL & DETAILS ================= -->
+  <g id="right-panel">
+    <rect x="460" y="30" width="690" height="550" rx="16" class="panel" />
+
+    <!-- Terminal Window Header -->
+    <rect x="460" y="30" width="690" height="40" rx="16" fill="rgba(255,255,255,0.03)" />
+    <circle cx="485" cy="50" r="6" fill="#EF4444" opacity="0.8" />
+    <circle cx="505" cy="50" r="6" fill="#F59E0B" opacity="0.8" />
+    <circle cx="525" cy="50" r="6" fill="#10B981" opacity="0.8" />
+    <text x="805" y="55" text-anchor="middle" class="text-muted mono" font-size="12" opacity="0.6">bash - dev-profile — 80x24</text>
+
+    <!-- Main Content Area -->
+    <g transform="translate(495, 100)">
+      <!-- Greeting -->
+      <text x="0" y="20" class="text-primary" font-size="28" font-weight="700">Hi 👋 I'm <tspan fill="url(#accent-grad)">YOUR_NAME</tspan></text>
+
+      <!-- Typing Role Animation -->
+      <g transform="translate(0, 50)">
+        <text x="0" y="0" class="mono" fill="#22D3EE" font-size="16" font-weight="600">&gt;</text>
+        <g transform="translate(20, -14)">
+          <g clip-path="url(#type-clip)">
+            <text x="0" y="14" class="mono" fill="#F8FAFC" font-size="15" font-weight="500">Full Stack &amp; AI Engineer</text>
+          </g>
+          <!-- Cursor -->
+          <rect x="220" y="2" width="8" height="16" class="cursor" />
+        </g>
+      </g>
+
+      <line x1="0" y1="80" x2="620" y2="80" stroke="rgba(255,255,255,0.08)" stroke-width="1" />
+
+      <!-- Details List (Sequential Reveal) -->
+      <g transform="translate(0, 110)" class="text-primary" font-size="14">
+        <!-- Location -->
+        <g opacity="0">
+          <animate attributeName="opacity" to="1" dur="0.5s" begin="0.2s" fill="freeze" />
+          <text x="0" y="0" class="text-muted mono" font-size="13">Location:</text>
+          <text x="130" y="0" font-weight="500">Jakarta, Indonesia / Remote</text>
+        </g>
+
+        <!-- Education -->
+        <g transform="translate(0, 30)" opacity="0">
+          <animate attributeName="opacity" to="1" dur="0.5s" begin="0.4s" fill="freeze" />
+          <text x="0" y="0" class="text-muted mono" font-size="13">Education:</text>
+          <text x="130" y="0" font-weight="500">B.S. in Computer Science</text>
+        </g>
+
+        <!-- Current Focus -->
+        <g transform="translate(0, 60)" opacity="0">
+          <animate attributeName="opacity" to="1" dur="0.5s" begin="0.6s" fill="freeze" />
+          <text x="0" y="0" class="text-muted mono" font-size="13">Focusing On:</text>
+          <text x="130" y="0" font-weight="500" fill="#22D3EE">LLM Agents, Distributed Systems &amp; Web3</text>
+        </g>
+
+        <!-- Portfolio -->
+        <g transform="translate(0, 90)" opacity="0">
+          <animate attributeName="opacity" to="1" dur="0.5s" begin="0.8s" fill="freeze" />
+          <text x="0" y="0" class="text-muted mono" font-size="13">Portfolio:</text>
+          <text x="130" y="0" font-weight="500" fill="#10B981">https://yourportfolio.dev</text>
+        </g>
+      </g>
+
+      <!-- Skills Section -->
+      <g transform="translate(0, 250)">
+        <text x="0" y="0" class="text-muted mono" font-size="12" letter-spacing="1">// TECH_STACK</text>
+        
+        <!-- Skill Pills Grid -->
+        <g transform="translate(0, 15)" filter="url(#pill-glow)">
+          <!-- Row 1 -->
+          <g transform="translate(0,0)"><rect class="pill" width="70" height="28" /><text x="35" y="18" text-anchor="middle" class="pill-text">React</text></g>
+          <g transform="translate(78,0)"><rect class="pill" width="75" height="28" /><text x="37.5" y="18" text-anchor="middle" class="pill-text">Next.js</text></g>
+          <g transform="translate(161,0)"><rect class="pill" width="95" height="28" /><text x="47.5" y="18" text-anchor="middle" class="pill-text">TypeScript</text></g>
+          <g transform="translate(264,0)"><rect class="pill" width="75" height="28" /><text x="37.5" y="18" text-anchor="middle" class="pill-text">Node.js</text></g>
+          <g transform="translate(347,0)"><rect class="pill" width="75" height="28" /><text x="37.5" y="18" text-anchor="middle" class="pill-text">Python</text></g>
+
+          <!-- Row 2 -->
+          <g transform="translate(0,36)"><rect class="pill" width="75" height="28" /><text x="37.5" y="18" text-anchor="middle" class="pill-text">Tailwind</text></g>
+          <g transform="translate(83,36)"><rect class="pill" width="70" height="28" /><text x="35" y="18" text-anchor="middle" class="pill-text">Docker</text></g>
+          <g transform="translate(161,36)"><rect class="pill" width="85" height="28" /><text x="42.5" y="18" text-anchor="middle" class="pill-text">Postgres</text></g>
+          <g transform="translate(254,36)"><rect class="pill" width="60" height="28" /><text x="30" y="18" text-anchor="middle" class="pill-text">AWS</text></g>
+          <g transform="translate(322,36)"><rect class="pill" width="55" height="28" /><text x="27.5" y="18" text-anchor="middle" class="pill-text">Git</text></g>
+        </g>
+      </g>
+
+      <!-- Social Links Footer -->
+      <g transform="translate(0, 375)">
+        <line x1="0" y1="-15" x2="620" y2="-15" stroke="rgba(255,255,255,0.08)" stroke-width="1" />
+        
+        <!-- GitHub -->
+        <g transform="translate(0, 5)">
+          <circle cx="12" cy="12" r="14" fill="rgba(255,255,255,0.05)" />
+          <path d="M12 5a7 7 0 0 0-2.2 13.65c.35.06.48-.15.48-.34v-1.2c-1.95.42-2.36-.94-2.36-.94-.32-.8-.78-1.02-.78-1.02-.64-.44.05-.43.05-.43.7.05 1.08.73 1.08.73.63 1.08 1.65.77 2.05.59.06-.46.25-.77.45-.95-1.55-.18-3.18-.78-3.18-3.46 0-.76.27-1.38.72-1.87-.07-.18-.31-.89.07-1.85 0 0 .59-.19 1.93.72A6.7 6.7 0 0 1 12 8.4c.6 0 1.2.08 1.77.24 1.34-.91 1.93-.72 1.93-.72.38.96.14 1.67.07 1.85.45.49.72 1.11.72 1.87 0 2.69-1.63 3.28-3.19 3.45.26.22.49.66.49 1.33v1.97c0 .19.13.41.48.34A7 7 0 0 0 12 5z" fill="#F8FAFC"/>
+        </g>
+
+        <!-- LinkedIn -->
+        <g transform="translate(45, 5)">
+          <circle cx="12" cy="12" r="14" fill="rgba(255,255,255,0.05)" />
+          <path d="M7 6h2.5v12H7V6zm1.25-4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3zM11.5 6H14v1.7h.04c.35-.66 1.2-1.35 2.46-1.35 2.63 0 3.12 1.73 3.12 3.98V18h-2.5v-5.25c0-1.25-.02-2.86-1.74-2.86-1.75 0-2.02 1.36-2.02 2.76V18h-2.5V6z" fill="#0A66C2"/>
+        </g>
+
+        <!-- X / Twitter -->
+        <g transform="translate(90, 5)">
+          <circle cx="12" cy="12" r="14" fill="rgba(255,255,255,0.05)" />
+          <path d="M14.25 6h2.25l-4.9 5.6 5.77 7.63h-4.53l-3.55-4.64-4.06 4.64H2.98l5.24-5.99L2.68 6h4.65l3.2 4.23L14.25 6zm-.79 11.88h1.25L6.61 7.27H5.27l8.19 10.61z" fill="#F8FAFC"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
