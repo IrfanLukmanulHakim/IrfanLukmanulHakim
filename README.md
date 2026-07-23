@@ -16,3 +16,12 @@
   </table>
 
 </div>
+<div align="center">
+  <!-- Foto Profil -->
+  <img src="./logo.jpg" alt="Profile Picture" width="150px" style="border-radius: 50%;" />
+  
+  <br /><br />
+
+  <!-- Card Terminal SVG -->
+  <img src="./dark.svg" alt="Terminal Card" width="100%" />
+</div>
