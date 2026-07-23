@@ -1,5 +1,5 @@
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="light.svg">
-  <img alt="Header Banner" src="dark.svg" width="100%">
+  <img src="gemini-svg.svg" alt="Header Banner" width="100%">
 </picture>
